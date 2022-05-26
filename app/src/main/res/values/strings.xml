@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CST131</string>
+    <string name="toolbarName">DnD 5e Character Creator</string>
+    <string name="btnCreateCharacter">Create Character</string>
+    <string name="btnRandomCharacter">Randomly Make a Character</string>
+    <string name="btnViewCharacters">View Characters</string>
+</resources>
