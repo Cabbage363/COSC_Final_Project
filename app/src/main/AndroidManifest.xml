@@ -20,7 +20,7 @@
         </activity>
 
         <activity
-            android:name=".activities.CreateCharacterMenu"
+            android:name=".activities.activity_CharacterScratch"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +30,27 @@
         </activity>
 
         <activity
-            android:name=".activities.ViewCharactersActivity"
+            android:name=".activities.activity_CharacterParams"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.activity_CharacterRandom"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.activity_CharactersView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

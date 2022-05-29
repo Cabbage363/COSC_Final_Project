@@ -7,4 +7,8 @@
     <string name="toolbarCharacterCreationMenu">Character Creation Options</string>
     <string name="btnScratch">Create a Character \nFrom Scratch</string>
     <string name="btnParams">Create a Character \nUsing Parameters</string>
+    <string name="tabRace">Race</string>
+    <string name="tabClass">Class</string>
+    <string name="tabBackground">Background</string>
+    <string name="tabEquipment">Equipment</string>
 </resources>

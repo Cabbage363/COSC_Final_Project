@@ -6,17 +6,10 @@ import android.view.View;
 import android.widget.Button;
 
 import project.cst131.R;
-import project.cst131.activities.CreateCharacterMenu;
+import project.cst131.activities.*;
 
 public class IntentController
 {
-
-//    R.id.btnCreateCharacter
-//    R.id.btnRandomCreate
-//    R.id.btnViewCharacters
-//    R.id.btnScratch
-//    R.id.btnParam
-
 
     public static void swapIntent(int buttonID, Activity activity)
     {
@@ -27,9 +20,7 @@ public class IntentController
                 if(activity.findViewById(R.id.layout_characterOptions).getVisibility() == View.VISIBLE)
                 {
                     activity.findViewById(R.id.layout_characterOptions).setVisibility(View.GONE);
-                }
-                else
-                {
+                } else {
                     activity.findViewById(R.id.layout_characterOptions).setVisibility(View.VISIBLE);
                 }
                 break;
@@ -40,7 +31,7 @@ public class IntentController
 //                intent = new Intent(activity, CreateCharacterMenu.class);
                 break;
             case R.id.btnScratch:
-//                intent = new Intent(activity, CreateCharacterMenu.class);
+                intent = new Intent(activity, activity_CharacterScratch.class);
                 break;
             case R.id.btnParams:
 //                intent = new Intent(activity, CreateCharacterMenu.class);
