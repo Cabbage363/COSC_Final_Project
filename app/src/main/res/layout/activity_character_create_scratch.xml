@@ -21,7 +21,11 @@
         android:id="@+id/_tlScratchCharactersTabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/_tbScratchCharacter"
+        app:layout_constraintVertical_bias="0.0"
         app:tabGravity="fill"
         app:tabMaxWidth="0dp"
         app:tabMode="fixed"
@@ -32,5 +36,7 @@
         android:id="@+id/_vpScratchCharacter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/_tlScratchCharactersTabs" />
+        android:layout_marginTop="104dp"
+        app:layout_constraintTop_toBottomOf="@+id/_tlScratchCharactersTabs"
+        tools:layout_editor_absoluteX="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
