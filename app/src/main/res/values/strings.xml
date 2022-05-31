@@ -11,4 +11,14 @@
     <string name="tabClass">Class</string>
     <string name="tabBackground">Background</string>
     <string name="tabEquipment">Equipment</string>
+    <string name="headerRace">Races</string>
+    <string name="subRaces">Sub Races</string>
+    <string name="headerRacialTraits">Racial Traits</string>
+    <string name="hitDie">Hit Die:</string>
+    <string name="profPlus">Proficiency Plus:</string>
+    <string name="weaponsORarmour">Proficiency in \n Weapons/Armour:</string>
+    <string name="savingThrow">Proficiency Saving Throw:</string>
+    <string name="skills">Skills:</string>
+    <string name="skillsNum">Number of Skills:</string>
+    <string name="tools">Tools:</string>
 </resources>

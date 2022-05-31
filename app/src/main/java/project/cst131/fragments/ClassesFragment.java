@@ -4,27 +4,62 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import project.cst131.R;
+import project.cst131.information.Points;
 
 public class ClassesFragment extends Fragment
 {
+    private View view;
+    private ArrayList<Points.ClassAbilityIncrease> lstClasses;
+    private TextView tvClassName, tvHitDieVal, tvProfPlusVal, tvProf_AW_Val, tvProf_ST_Val, tvToolsVal, tvSkillNum, tvSkills;
+    private int index = 1;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-        /* Page Content Below */
-
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        return inflater.inflate(R.layout.frag_character_classes, container, false);
+        view = inflater.inflate(R.layout.frag_character_classes, container, false);
+
+        tvClassName    =    view.findViewById(R.id.tvClassHeader);
+        tvHitDieVal    =    view.findViewById(R.id.tvHitDie_Val);
+        tvProfPlusVal  =    view.findViewById(R.id.tvProfPlus_Val);
+        tvProf_AW_Val  =    view.findViewById(R.id.tvProf_AW_Val);
+        tvProf_ST_Val  =    view.findViewById(R.id.tvSavThr_Val);
+        tvToolsVal     =    view.findViewById(R.id.tvTools_Val);
+        tvSkillNum     =    view.findViewById(R.id.tvSkill_Num_Val);
+        tvSkills       =    view.findViewById(R.id.tvSkills_Val);
+
+        lstClasses = new ArrayList<>(Arrays.asList(Points.ClassAbilityIncrease.values()));
+        updateView();
+        return view;
+    }
+
+    private void updateView()
+    {
+        Points.ClassAbilityIncrease current = lstClasses.get(index);
+
+        tvClassName.setText(String.valueOf(current.name()));
+        tvHitDieVal.setText(String.valueOf(current.getHitDie()));
+        tvProfPlusVal.setText(String.valueOf(current.getProf()));
+        tvProf_AW_Val.setText(String.valueOf(current.getsProf_AW()));
+        tvProf_ST_Val.setText(String.valueOf(current.getsProf_ST()));
+        tvToolsVal.setText(String.valueOf(current.getsTools()));
+        tvSkillNum.setText(String.valueOf(current.getSkillNum()));
+        tvSkills.setText(String.valueOf(current.getsSkills()));
     }
 }

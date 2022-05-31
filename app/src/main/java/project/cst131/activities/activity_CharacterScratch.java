@@ -20,6 +20,7 @@ import project.cst131.fragments.ClassesFragment;
 import project.cst131.fragments.EquipmentFragment;
 import project.cst131.fragments.PersonalityBackgroundFragment;
 import project.cst131.fragments.RacesFragment;
+import project.cst131.information.Choices;
 
 public class activity_CharacterScratch extends AppCompatActivity
 {
@@ -76,6 +77,7 @@ public class activity_CharacterScratch extends AppCompatActivity
             public void onTabSelected(TabLayout.Tab tab)
             {
                 viewPager.setCurrentItem(tab.getPosition());
+
             }
 
             @Override
