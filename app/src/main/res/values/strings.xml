@@ -36,6 +36,17 @@
     <string name="select">Select One</string>
     <string name="userBackGround">Please enter a background for your Character</string>
     <string name="included">You get the items below with the class</string>
+    <string name="abilityScores">Ability Scores</string>
+    <string name="str">Strength</string>
+    <string name="dex">Dexterity</string>
+    <string name="con">Constitution</string>
+    <string name="intel">Intelligence</string>
+    <string name="wis">Wisdom</string>
+    <string name="chari">Charisma</string>
+    <string name="roll">Roll</string>
+    <string name="roll5">Roll All</string>
+    <string name="value">0</string>
+
     <string-array name="genderOptions">
         <item>Male</item>
         <item>Female</item>

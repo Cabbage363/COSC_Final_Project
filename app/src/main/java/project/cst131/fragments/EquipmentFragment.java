@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
@@ -65,9 +64,7 @@ public class EquipmentFragment extends Fragment
                 rolls.add(rollDie(sDie));
             }
 
-            rolls.forEach(x -> {
-                rolls.set(rolls.indexOf(x), x * Integer.parseInt(sAmount));
-            });
+            rolls.forEach(x -> rolls.set(rolls.indexOf(x), x * Integer.parseInt(sAmount)));
             
             wealth = rolls.stream().mapToInt(x-> x).sum();
     
