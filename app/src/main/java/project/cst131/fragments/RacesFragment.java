@@ -32,6 +32,7 @@ public class RacesFragment extends Fragment
     private static View view;
     private static String sChoice = "";
     private Spinner spinner;
+    public static String selection;
     public List<String> spinnerArray = new ArrayList<>(Arrays.asList(
        "Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"
     ));
@@ -42,6 +43,8 @@ public class RacesFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
     }
+
+
 
     @Nullable
     @Override
@@ -123,6 +126,7 @@ public class RacesFragment extends Fragment
                 if(rb.getText().equals(Choices.getRace()))
                 {
                     ((RadioButton) view.findViewById(rgRaceSubs.getChildAt(i).getId())).setChecked(true);
+                    selection = (String) ((RadioButton)view.findViewById(rgRaceSubs.getChildAt(i).getId())).getText();
                 }
             }
             catch (Exception ignored)

@@ -86,7 +86,7 @@ public class ClassesFragment extends Fragment
 
     private void increaseIndex()
     {
-        if(index == lstClasses.size() -1)
+        if(index == lstClasses.size() -2)
         {
             ivRight.setVisibility(View.GONE);
         }

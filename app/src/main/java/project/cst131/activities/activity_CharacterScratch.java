@@ -16,6 +16,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 import project.cst131.R;
 import project.cst131.adapters.ScreenSlidePagerAdapter;
+import project.cst131.controllers.dndCharacter;
 import project.cst131.fragments.ClassesFragment;
 import project.cst131.fragments.EquipmentFragment;
 import project.cst131.fragments.PersonalityBackgroundFragment;
@@ -26,6 +27,7 @@ public class activity_CharacterScratch extends AppCompatActivity
 {
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
+    public static dndCharacter character = new dndCharacter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

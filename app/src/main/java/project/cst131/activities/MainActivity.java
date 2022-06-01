@@ -11,11 +11,14 @@ import java.util.Arrays;
 
 import project.cst131.R;
 import project.cst131.controllers.IntentController;
+import project.cst131.fragments.RacesFragment;
+import project.cst131.information.Races;
 
 public class MainActivity extends AppCompatActivity
 {
     private Button btnCreateCharacter, btnRandomlyCreate, btnViewCharacters, btnScratch, btnParams;
     private ArrayList<Button> lstButtons;
+    private int completed = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity
         lstButtons = new ArrayList<>(Arrays.asList(btnCreateCharacter, btnRandomlyCreate, btnViewCharacters, btnScratch, btnParams));
 
         onClickSetup();
+        checkCompletion();
 
     }
 
@@ -46,6 +50,21 @@ public class MainActivity extends AppCompatActivity
                 IntentController.swapIntent(e.getId(), this);
             });
         });
+    }
+
+    private void checkCompletion()
+    {
+        // Race
+        if(RacesFragment.selection != null)
+        {
+            String race = RacesFragment.selection;
+        }
+
+
+
+
+
+
     }
 
 }
