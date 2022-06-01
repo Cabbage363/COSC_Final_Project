@@ -9,10 +9,11 @@ import project.cst131.fragments.ClassesFragment;
 import project.cst131.fragments.EquipmentFragment;
 import project.cst131.fragments.PersonalityBackgroundFragment;
 import project.cst131.fragments.RacesFragment;
+import project.cst131.fragments.ScoreFragment;
 
 public class ScreenSlidePagerAdapter extends FragmentStateAdapter
 {
-    private final int numTabs = 4;
+    private final int numTabs = 5;
 
     public ScreenSlidePagerAdapter(AppCompatActivity activity)
     {
@@ -43,6 +44,9 @@ public class ScreenSlidePagerAdapter extends FragmentStateAdapter
                 break;
             case 3:
                 fragment = new EquipmentFragment();
+                break;
+            case 4:
+                fragment = new ScoreFragment();
                 break;
             default:
 

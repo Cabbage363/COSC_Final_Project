@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,13 +16,15 @@ import java.util.Arrays;
 
 import project.cst131.R;
 import project.cst131.information.Points;
+import project.cst131.information.Races;
 
 public class ClassesFragment extends Fragment
 {
     private View view;
-    private ArrayList<Points.ClassAbilityIncrease> lstClasses;
+    protected static ArrayList<Points.ClassAbilityIncrease> lstClasses;
     private TextView tvClassName, tvHitDieVal, tvProfPlusVal, tvProf_AW_Val, tvProf_ST_Val, tvToolsVal, tvSkillNum, tvSkills;
-    private int index = 1;
+    private ImageView ivRight, ivLeft;
+    protected static int index = 0;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
@@ -43,14 +46,32 @@ public class ClassesFragment extends Fragment
         tvToolsVal     =    view.findViewById(R.id.tvTools_Val);
         tvSkillNum     =    view.findViewById(R.id.tvSkill_Num_Val);
         tvSkills       =    view.findViewById(R.id.tvSkills_Val);
-
+        ivLeft       =    view.findViewById(R.id.ivButtonLeft2);
+        ivRight       =    view.findViewById(R.id.ivButtonRight2);
         lstClasses = new ArrayList<>(Arrays.asList(Points.ClassAbilityIncrease.values()));
+
         updateView();
+
+        ivRight.setOnClickListener(e -> {
+            increaseIndex();
+            updateView();
+        });
+
+        ivLeft.setOnClickListener(e -> {
+            decreaseIndex();
+            updateView();
+        });
+
         return view;
     }
 
     private void updateView()
     {
+        if(index == 0)
+        {
+            ivLeft.setVisibility(View.GONE);
+        }
+
         Points.ClassAbilityIncrease current = lstClasses.get(index);
 
         tvClassName.setText(String.valueOf(current.name()));
@@ -61,5 +82,37 @@ public class ClassesFragment extends Fragment
         tvToolsVal.setText(String.valueOf(current.getsTools()));
         tvSkillNum.setText(String.valueOf(current.getSkillNum()));
         tvSkills.setText(String.valueOf(current.getsSkills()));
+    }
+
+    private void increaseIndex()
+    {
+        if(index == lstClasses.size() -1)
+        {
+            ivRight.setVisibility(View.GONE);
+        }
+        else
+        {
+            ivLeft.setVisibility(View.VISIBLE);
+        }
+        if(index != lstClasses.size() -1)
+        {
+            index++;
+        }
+    }
+
+    private void decreaseIndex()
+    {
+        if(index == 0)
+        {
+            ivLeft.setVisibility(View.GONE);
+        }
+        else
+        {
+            ivRight.setVisibility(View.VISIBLE);
+        }
+        if(index != 0)
+        {
+            index--;
+        }
     }
 }

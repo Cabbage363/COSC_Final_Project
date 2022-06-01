@@ -44,9 +44,9 @@ public class activity_CharacterScratch extends AppCompatActivity
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tabClass), 1);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tabBackground), 2);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tabEquipment), 3);
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.tabAbilityRolls), 4);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        tabLayout.setTabMode(TabLayout.MODE_FIXED);
-
+        tabLayout.setTabMode(TabLayout.MODE_AUTO);
 
         FragmentStateAdapter adapter = new ScreenSlidePagerAdapter(activity_CharacterScratch.this);
         viewPager.setAdapter(adapter);
@@ -65,6 +65,9 @@ public class activity_CharacterScratch extends AppCompatActivity
                     break;
                 case 3:
                     tab.setText(R.string.tabEquipment);
+                    break;
+                case 4:
+                    tab.setText(R.string.tabAbilityRolls);
                     break;
                 default:
 

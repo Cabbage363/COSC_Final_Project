@@ -10,7 +10,8 @@
     <string name="tabRace">Race</string>
     <string name="tabClass">Class</string>
     <string name="tabBackground">Background</string>
-    <string name="tabEquipment">Equipment</string>
+    <string name="tabEquipment">Equip</string>
+    <string name="tabAbilityRolls">Scores</string>
     <string name="headerRace">Races</string>
     <string name="subRaces">Sub Races</string>
     <string name="headerRacialTraits">Racial Traits</string>
@@ -21,4 +22,33 @@
     <string name="skills">Skills:</string>
     <string name="skillsNum">Number of Skills:</string>
     <string name="tools">Tools:</string>
+    <string name="characterInfo">Character Information</string>
+    <string name="gender">Gender</string>
+    <string name="alignment">Alignment</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="title">Title</string>
+    <string name="height">Height (ft. | in.)</string>
+    <string name="ft">ft.</string>
+    <string name="in">in.</string>
+    <string name="coin">Coins</string>
+    <string name="equip">Equipment</string>
+    <string name="select">Select One</string>
+    <string name="userBackGround">Please enter a background for your Character</string>
+    <string name="included">You get the items below with the class</string>
+    <string-array name="genderOptions">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="alignment">
+        <item>Lawful Good (LG)</item>
+        <item>Neutral Good (NG)</item>
+        <item>Chaotic Good (CG)</item>
+        <item>Lawful Neutral (LN)</item>
+        <item>Neutral (N)</item>
+        <item>Chaotic Neutral (CN)</item>
+        <item>Lawful Evil (LE)</item>
+        <item>Neutral Evil (NE)</item>
+        <item>Chaotic Evil (CE)</item>
+    </string-array>
 </resources>

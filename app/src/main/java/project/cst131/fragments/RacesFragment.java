@@ -190,14 +190,4 @@ public class RacesFragment extends Fragment
         }
     }
 
-    public void saveRace()
-    {
-
-    }
-
-
-
-
-
-
 }

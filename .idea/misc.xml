@@ -3,12 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/drawable/bg_spinner_filler.xml" value="0.3425" />
         <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/font/dnd_font.xml" value="0.3171875" />
         <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/font/dungrg.xml" value="0.3171875" />
         <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/activity_character_create_scratch.xml" value="0.33" />
-        <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/frag_character_classes.xml" value="0.33" />
-        <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/frag_character_equipment.xml" value="0.365625" />
-        <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/frag_character_personality_and_background.xml" value="0.4282238442822384" />
+        <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/activity_view_characters.xml" value="0.31929347826086957" />
+        <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/bg_spinner_all.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/frag_ability.xml" value="0.365625" />
+        <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/frag_character_classes.xml" value="0.42962962962962964" />
+        <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/frag_character_equipment.xml" value="0.5" />
+        <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/frag_character_personality_and_background.xml" value="0.5" />
         <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/frag_character_race.xml" value="0.365625" />
         <entry key="..\:/Users/Cabbage/StudioProjects/COSC_Final_Project/app/src/main/res/layout/frag_character_races.xml" value="0.33" />
         <entry key="..\:/Users/cst131/AndroidStudioProjects/CST131/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2075" />
