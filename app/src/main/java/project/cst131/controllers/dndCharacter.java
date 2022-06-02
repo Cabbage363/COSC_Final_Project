@@ -1,16 +1,31 @@
 package project.cst131.controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
-public class dndCharacter
+import project.cst131.information.Points;
+
+public class dndCharacter implements Serializable
 {
+    private static final long serialVersionUID = 1L;
+
     public dndCharacter()
     {
     }
 
     private String sRace, sRaceTraits;
-    private String sClass, sClassHitDie, sClassProfSaveThrow, sClassProfPlus, sClassWeaponsArmour, sClassTools, sClassNumSkills, sClassSkills;
+    private String sClass;
+    private String sClassHitDie;
+    private String sClassProfSaveThrow;
+    private String sClassProfPlus;
+    private ArrayList<String> sClassWeaponsArmour;
+    private String sClassTools;
+    private String sClassNumSkills;
+    private String sClassSkills;
     private String sGender, sAlignment, sTitle, sFirstName, sLastName, sHeightFeet, getsHeightInch, sBackground;
+    private int str, dex, con, intel, wis, charis;
     private ArrayList<String> lstEqipment = new ArrayList<>();
     /**
      * Str, Dex, Con, Intel, Wis, Char
@@ -30,34 +45,48 @@ public class dndCharacter
 
     /**
      * Method to set classInfo.
-     * @param sVals sClass, sClassHitDie, sClassProfSaveThrow, sClassProfPlus, sClassWeaponsArmour, sClassTools, sClassNumSkills, sClassSkills.
+     * @param character sClass, sClassHitDie, sClassProfSaveThrow, sClassProfPlus, sClassWeaponsArmour, sClassTools, sClassNumSkills, sClassSkills.
      */
-    public void setClassInfo(String... sVals)
+    public void setClassInfo(Points.ClassAbilityIncrease character)
     {
-        this.sClass                 = sVals[0];
-        this.sClassHitDie           = sVals[2];
-        this.sClassProfSaveThrow    = sVals[3];
-        this.sClassProfPlus         = sVals[4];
-        this.sClassWeaponsArmour    = sVals[5];
-        this.sClassTools            = sVals[6];
-        this.sClassNumSkills        = sVals[7];
-        this.sClassSkills           = sVals[8];
+        this.sClass                 =   character.name();
+        this.sClassHitDie           =   String.valueOf(character.getHitDie());
+        this.sClassProfSaveThrow    =   character.getsProf_ST();
+        this.sClassProfPlus         =   String.valueOf(character.getProf());
+        this.sClassWeaponsArmour    =   character.getsStartWeapons();
+        this.sClassTools            =   character.getsTools();
+        this.sClassNumSkills        =   String.valueOf(character.getSkillNum());
+        this.sClassSkills           =   character.getsSkills();
+    }
+
+    /**
+     * Method to set RaceModifiers.
+     * @param lstVals Arraylist, str, dex, con, intel, wis, charis.
+     */
+    public void setRaceModifiers(ArrayList<Integer> lstVals)
+    {
+        this.str        =   lstVals.get(0);
+        this.dex        =   lstVals.get(1);
+        this.con        =   lstVals.get(2);
+        this.intel      =   lstVals.get(3);
+        this.wis        =   lstVals.get(4);
+        this.charis     =   lstVals.get(5);
     }
 
     /**
      * Method to set backgroundPersonality.
      * @param sVals sGender, sAlignment, sTitle, sFirstName, sLastName, sHeightFeet, getsHeightInch, sBackground.
      */
-    public void setBackgroundPersonality(String... sVals)
+    public void setBackgroundPersonality(ArrayList<String> sVals)
     {
-        sGender            = sVals[0];
-        sAlignment         = sVals[1];
-        sTitle             = sVals[2];
-        sFirstName         = sVals[3];
-        sLastName          = sVals[4];
-        sHeightFeet        = sVals[5];
-        getsHeightInch     = sVals[6];
-        sBackground        = sVals[7];
+        this.sGender            = sVals.get(0);
+        this.sAlignment         = sVals.get(1);
+        this.sTitle             = sVals.get(2);
+        this.sFirstName         = sVals.get(3);
+        this.sLastName          = sVals.get(4);
+        this.sHeightFeet        = sVals.get(5);
+        this.getsHeightInch     = sVals.get(6);
+        this.sBackground        = sVals.get(7);
     }
 
     /**
@@ -76,6 +105,29 @@ public class dndCharacter
     public void setAbilityScores(ArrayList<Integer> lstAbilityScores)
     {
         this.lstAbilityScores = lstAbilityScores;
+    }
+
+    public boolean isValid() throws Exception
+    {
+        ArrayList<String> lstFields = new ArrayList<>(Arrays.asList(
+           sRace, sRaceTraits, sClass, sClassHitDie, sClassProfSaveThrow, sClassProfPlus,
+           sClassTools, sClassNumSkills, sClassSkills, sGender, sAlignment, sTitle, sFirstName,
+                sLastName, sHeightFeet, getsHeightInch, sBackground,
+                String.valueOf(str), String.valueOf(dex), String.valueOf(con), String.valueOf(intel),
+                String.valueOf(wis), String.valueOf(charis)
+        ));
+        lstFields.addAll(sClassWeaponsArmour);
+        lstFields.addAll(lstEqipment);
+        lstFields.addAll(lstAbilityScores.stream().map(String::valueOf).collect(Collectors.toCollection(ArrayList::new)));
+
+        for (String lstField : lstFields)
+        {
+            if(lstField.isEmpty())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

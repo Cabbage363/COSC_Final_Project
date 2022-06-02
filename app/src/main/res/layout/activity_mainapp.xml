@@ -48,33 +48,6 @@
             android:backgroundTint="#0D5901"
             android:text="@string/btnCreateCharacter" />
 
-        <LinearLayout
-            android:id="@+id/layout_characterOptions"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#B3000C"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/btnScratch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="75dp"
-                android:layout_marginRight="75dp"
-                android:backgroundTint="#0D5901"
-                android:text="@string/btnScratch" />
-
-            <Button
-                android:id="@+id/btnParams"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="75dp"
-                android:layout_marginRight="75dp"
-                android:backgroundTint="#0D5901"
-                android:text="@string/btnParams" />
-        </LinearLayout>
-
         <Button
             android:id="@+id/btnRandomCreate"
             android:layout_width="match_parent"

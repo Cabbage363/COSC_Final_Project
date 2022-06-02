@@ -13,13 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import project.cst131.R;
 
 public class PersonalityBackgroundFragment extends Fragment
 {
     private View view;
-    private Spinner genderOptions,  alignments;
-    private TextView tvTitle, tvFirstName, tvLastName, tvFeet, tvInch, tvBackground;
+    private static Spinner genderOptions;
+    private static Spinner alignments;
+    private static TextView tvTitle, tvFirstName, tvLastName, tvFeet, tvInch, tvBackground;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
@@ -53,5 +57,21 @@ public class PersonalityBackgroundFragment extends Fragment
         alignments.setAdapter(adapterA);
 
         return view;
+    }
+
+    /**
+     *
+     * @return ArrayList, gender, alignment, title, FirstName, LastName,Feet, Inch, Background.
+     */
+    public static ArrayList<String> getBackground()
+    {
+        return new ArrayList<>(Arrays.asList(genderOptions.getSelectedItem().toString(),
+                alignments.getSelectedItem().toString(),
+                String.valueOf(tvTitle.getText()),
+                String.valueOf(tvFirstName.getText()),
+                String.valueOf(tvLastName.getText()),
+                String.valueOf(tvFeet.getText()),
+                String.valueOf(tvInch.getText()),
+                String.valueOf(tvBackground.getText())));
     }
 }

@@ -6,6 +6,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,12 +19,11 @@ public class MainActivity extends AppCompatActivity
 {
     private Button btnCreateCharacter, btnRandomlyCreate, btnViewCharacters, btnScratch, btnParams;
     private ArrayList<Button> lstButtons;
-    private int completed = 0;
+    public static File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainapp);
 
@@ -33,13 +33,11 @@ public class MainActivity extends AppCompatActivity
         btnCreateCharacter    =     findViewById(R.id.btnCreateCharacter);
         btnRandomlyCreate     =     findViewById(R.id.btnRandomCreate);
         btnViewCharacters     =     findViewById(R.id.btnViewCharacters);
-        btnScratch            =     findViewById(R.id.btnScratch);
-        btnParams             =     findViewById(R.id.btnParams);
 
-        lstButtons = new ArrayList<>(Arrays.asList(btnCreateCharacter, btnRandomlyCreate, btnViewCharacters, btnScratch, btnParams));
+        lstButtons = new ArrayList<>(Arrays.asList(btnCreateCharacter, btnRandomlyCreate, btnViewCharacters));
 
         onClickSetup();
-        checkCompletion();
+        file =  getApplicationContext().getFilesDir();
 
     }
 
@@ -50,21 +48,6 @@ public class MainActivity extends AppCompatActivity
                 IntentController.swapIntent(e.getId(), this);
             });
         });
-    }
-
-    private void checkCompletion()
-    {
-        // Race
-        if(RacesFragment.selection != null)
-        {
-            String race = RacesFragment.selection;
-        }
-
-
-
-
-
-
     }
 
 }

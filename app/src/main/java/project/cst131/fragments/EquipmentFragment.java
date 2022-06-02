@@ -24,11 +24,11 @@ public class EquipmentFragment extends Fragment
 {
     private View view;
     private TextView tvWealth;
-    private int wealth;
+    public static int wealth;
     private Points.ClassAbilityIncrease choice;
     private LinearLayout main;
-    protected static ArrayList<RadioGroup> lstRadioGroups = new ArrayList<>();
-    protected static String extraStuff;
+    public static ArrayList<RadioGroup> lstRadioGroups = new ArrayList<>();
+    public static String extraStuff;
     private Typeface font;
 
     @Override
@@ -123,5 +123,29 @@ public class EquipmentFragment extends Fragment
 
         }
 
+    }
+
+
+    public static ArrayList<String> getChoices()
+    {
+        ArrayList<String> lstRadioAnswers = new ArrayList<>();
+        for(int i = 0; i < lstRadioGroups.size(); i++)
+        {
+            for(int x = 0; x < lstRadioGroups.get(i).getChildCount(); x++)
+            {
+                View v = lstRadioGroups.get(i).getChildAt(x);
+                if(v instanceof RadioButton)
+                {
+                    if(((RadioButton) v).isChecked())
+                    {
+                        lstRadioAnswers.add((String) ((RadioButton) v).getText());
+                    }
+                }
+            }
+        }
+
+        lstRadioAnswers.add(extraStuff);
+
+        return lstRadioAnswers;
     }
 }

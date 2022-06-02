@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import project.cst131.R;
 import project.cst131.information.Points;
@@ -24,7 +25,7 @@ public class ScoreFragment extends Fragment
     private Button btnStr, btnDex, btnCon, btnInt, btnWis, btnChar, btnRollAll;
     private TextView tvStr, tvDex, tvCon, tvInt, tvWis, tvChar;
     private ArrayList<Button> lstButtons = new ArrayList<>();
-    private ArrayList<TextView> lstTextVals = new ArrayList<>();
+    private static ArrayList<TextView> lstTextVals = new ArrayList<>();
 
 
     @Override
@@ -58,9 +59,18 @@ public class ScoreFragment extends Fragment
 
         lstTextVals.addAll(Arrays.asList(tvStr, tvDex, tvCon, tvInt, tvWis, tvChar));
 
+        btnRollAll.setOnClickListener(e->rollAll());
+
         lstButtons.forEach(x -> rollAndSet(x, lstTextVals.get(lstButtons.indexOf(x))));
 
         return view;
+    }
+
+    private void rollAll()
+    {
+        lstTextVals.forEach(x -> {
+            x.setText(String.valueOf(rollD20()));
+        });
     }
 
     private void rollAndSet(Button btn, TextView tv)
@@ -71,5 +81,13 @@ public class ScoreFragment extends Fragment
     public int rollD20()
     {
         return (int) Math.floor((Math.random() * 20) + 1);
+    }
+
+    public static ArrayList<Integer> getRolls()
+    {
+        ArrayList<Integer> lstRolls = new ArrayList<>();
+        lstTextVals.forEach(x-> lstRolls.add(Integer.parseInt((String) x.getText())));
+
+        return lstRolls;
     }
 }

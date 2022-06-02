@@ -61,6 +61,12 @@ public class Points
         public int getCharis() {
             return charis;
         }
+
+        /**
+         * Gets all modifiers for Race.
+         * @return ArrayList str, dex, con, intel, wis, charis
+         */
+        public ArrayList<Integer> getAllMods() { return new ArrayList<>(Arrays.asList(getStr(), getDex(), getCon(), getIntel(), getWis(), getCharis())); }
     }
 
     public enum ClassAbilityIncrease

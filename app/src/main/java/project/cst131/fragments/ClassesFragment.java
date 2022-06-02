@@ -25,6 +25,7 @@ public class ClassesFragment extends Fragment
     private TextView tvClassName, tvHitDieVal, tvProfPlusVal, tvProf_AW_Val, tvProf_ST_Val, tvToolsVal, tvSkillNum, tvSkills;
     private ImageView ivRight, ivLeft;
     protected static int index = 0;
+    private static Points.ClassAbilityIncrease current;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
@@ -72,7 +73,7 @@ public class ClassesFragment extends Fragment
             ivLeft.setVisibility(View.GONE);
         }
 
-        Points.ClassAbilityIncrease current = lstClasses.get(index);
+        current = lstClasses.get(index);
 
         tvClassName.setText(String.valueOf(current.name()));
         tvHitDieVal.setText(String.valueOf(current.getHitDie()));
@@ -115,4 +116,6 @@ public class ClassesFragment extends Fragment
             index--;
         }
     }
+
+    public static Points.ClassAbilityIncrease getCurrent() { return current; }
 }

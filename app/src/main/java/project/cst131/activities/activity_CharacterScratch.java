@@ -1,7 +1,10 @@
 package project.cst131.activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +17,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.util.ArrayList;
+
 import project.cst131.R;
 import project.cst131.adapters.ScreenSlidePagerAdapter;
 import project.cst131.controllers.dndCharacter;
@@ -21,13 +26,17 @@ import project.cst131.fragments.ClassesFragment;
 import project.cst131.fragments.EquipmentFragment;
 import project.cst131.fragments.PersonalityBackgroundFragment;
 import project.cst131.fragments.RacesFragment;
+import project.cst131.fragments.ScoreFragment;
 import project.cst131.information.Choices;
+import project.cst131.information.Points;
+import project.cst131.storageUtils.Character_File_Saver;
 
 public class activity_CharacterScratch extends AppCompatActivity
 {
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
     public static dndCharacter character = new dndCharacter();
+    public static Button btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,6 +49,7 @@ public class activity_CharacterScratch extends AppCompatActivity
 
         tabLayout = findViewById(R.id._tlScratchCharactersTabs);
         viewPager =  findViewById(R.id._vpScratchCharacter);
+        btnSave = findViewById(R.id.btnSave);
 
 
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tabRace), 0);
@@ -82,6 +92,8 @@ public class activity_CharacterScratch extends AppCompatActivity
             public void onTabSelected(TabLayout.Tab tab)
             {
                 viewPager.setCurrentItem(tab.getPosition());
+                checkCharacter();
+                updateCharacter();
 
             }
 
@@ -99,6 +111,73 @@ public class activity_CharacterScratch extends AppCompatActivity
         });
 
         viewPager.setCurrentItem(0);
+
+    }
+
+
+    public void updateCharacter()
+    {
+
+        try
+        {
+            // Global Character.
+            dndCharacter Character = activity_CharacterScratch.character;
+            // Race.
+            String Race = RacesFragment.getRace();
+            // Race Traits.
+            String RaceTraits = RacesFragment.getTraits();
+            // Race Modifiers.
+            ArrayList<Integer> lstRaceModifiers = Points.AbilityRaceIncrease.valueOf(Race).getAllMods();
+            // Class Information.
+            Points.ClassAbilityIncrease Class = ClassesFragment.getCurrent();
+            // Background.
+            ArrayList<String> lstBackgroundInfo = PersonalityBackgroundFragment.getBackground();
+            // Coin.
+            int coin = EquipmentFragment.wealth;
+            // Equipment.
+            ArrayList<String> lstEquipment = EquipmentFragment.getChoices();
+            // Rolls.
+            ArrayList<Integer> lstRolls = ScoreFragment.getRolls();
+
+            Character.setRaceInfo(Race, RaceTraits);
+            Character.setRaceModifiers(lstRaceModifiers);
+            Character.setClassInfo(Class);
+            Character.setBackgroundPersonality(lstBackgroundInfo);
+            Character.setEquipment(lstEquipment);
+            Character.setAbilityScores(lstRolls);
+        }
+        catch (Exception ignored)
+        {
+
+        }
+
+    }
+
+    private void checkCharacter()
+    {
+
+        try
+        {
+            // Global Character.
+            dndCharacter Character = activity_CharacterScratch.character;
+            System.out.println(Character.isValid());
+            if(Character.isValid())
+            {
+                activity_CharacterScratch.btnSave.setText(R.string.save);
+                activity_CharacterScratch.btnSave.setBackgroundColor(Color.RED);
+                btnSave.setOnClickListener(e -> {
+                    Character_File_Saver saver = new Character_File_Saver();
+                    saver.writeCharacterToFile(Character);
+                    Toast.makeText(this, "Character Saved", Toast.LENGTH_SHORT).show();
+                });
+
+            }
+        }
+        catch (Exception ignored)
+        {
+
+        }
+
 
     }
 

@@ -46,6 +46,7 @@
     <string name="roll">Roll</string>
     <string name="roll5">Roll All</string>
     <string name="value">0</string>
+    <string name="save">Save</string>
 
     <string-array name="genderOptions">
         <item>Male</item>

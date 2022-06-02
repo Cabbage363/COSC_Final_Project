@@ -26,13 +26,15 @@ import project.cst131.information.Races;
 public class RacesFragment extends Fragment
 {
     private ImageView ivRaceImage, ivButtonLeft, ivButtonRight;
-    private TextView  tvRaceTitle, tvRacialDescription, tvRacialTraits;
+    private TextView  tvRaceTitle;
+    private TextView tvRacialDescription;
+    private static TextView tvRacialTraits;
     private static RadioGroup rgRaceSubs;
     private int index = 0;
     private static View view;
     private static String sChoice = "";
     private Spinner spinner;
-    public static String selection;
+    private static String selection;
     public List<String> spinnerArray = new ArrayList<>(Arrays.asList(
        "Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"
     ));
@@ -76,7 +78,7 @@ public class RacesFragment extends Fragment
         return view;
     }
 
-    private void updateRace()
+    public void updateRace()
     {
         if(index == 0)
         {
@@ -192,6 +194,24 @@ public class RacesFragment extends Fragment
         {
             index--;
         }
+    }
+
+    public static String getRace()
+    {
+        return selection;
+    }
+
+    public static String getTraits()
+    {
+        try
+        {
+            return (String) tvRacialTraits.getText();
+        }
+        catch (Exception ignored)
+        {
+
+        }
+        return "";
     }
 
 }

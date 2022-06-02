@@ -18,10 +18,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
+            android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="right|top"
+            android:backgroundTint="@color/purple_500"
             android:text="Departure"
+            android:textColor="@color/purple_500"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="290dp"
             tools:layout_editor_absoluteY="23dp" />
     </androidx.appcompat.widget.Toolbar>

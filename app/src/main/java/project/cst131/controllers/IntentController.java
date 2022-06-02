@@ -17,12 +17,7 @@ public class IntentController
         switch(buttonID)
         {
             case R.id.btnCreateCharacter:
-                if(activity.findViewById(R.id.layout_characterOptions).getVisibility() == View.VISIBLE)
-                {
-                    activity.findViewById(R.id.layout_characterOptions).setVisibility(View.GONE);
-                } else {
-                    activity.findViewById(R.id.layout_characterOptions).setVisibility(View.VISIBLE);
-                }
+                intent = new Intent(activity, activity_CharacterScratch.class);
                 break;
             case R.id.btnRandomCreate:
 //                intent = new Intent(activity, CreateCharacterMenu.class);
@@ -30,22 +25,17 @@ public class IntentController
             case R.id.btnViewCharacters:
 //                intent = new Intent(activity, CreateCharacterMenu.class);
                 break;
-            case R.id.btnScratch:
-                intent = new Intent(activity, activity_CharacterScratch.class);
-                break;
-            case R.id.btnParams:
+            case R.id.btnSave:
 //                intent = new Intent(activity, CreateCharacterMenu.class);
                 break;
             default:
                 break;
         }
-        System.out.println(buttonID);
-        System.out.println(R.id.btnCreateCharacter);
 
-        if(!(buttonID == R.id.btnCreateCharacter))
-        {
+//        if(!(buttonID == R.id.btnCreateCharacter))
+//        {
             activity.startActivity(intent);
-        }
+//        }
 
     }
 
