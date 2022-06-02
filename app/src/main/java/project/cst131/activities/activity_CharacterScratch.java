@@ -92,9 +92,6 @@ public class activity_CharacterScratch extends AppCompatActivity
             public void onTabSelected(TabLayout.Tab tab)
             {
                 viewPager.setCurrentItem(tab.getPosition());
-                checkCharacter();
-                updateCharacter();
-
             }
 
             @Override
@@ -111,11 +108,13 @@ public class activity_CharacterScratch extends AppCompatActivity
         });
 
         viewPager.setCurrentItem(0);
+        checkCharacter();
+        updateCharacter();
 
     }
 
 
-    public void updateCharacter()
+    public static void updateCharacter()
     {
 
         try
@@ -126,6 +125,8 @@ public class activity_CharacterScratch extends AppCompatActivity
             String Race = RacesFragment.getRace();
             // Race Traits.
             String RaceTraits = RacesFragment.getTraits();
+            // Race Image Index.
+            int RaceImageIndex = RacesFragment.index;
             // Race Modifiers.
             ArrayList<Integer> lstRaceModifiers = Points.AbilityRaceIncrease.valueOf(Race).getAllMods();
             // Class Information.
@@ -139,7 +140,7 @@ public class activity_CharacterScratch extends AppCompatActivity
             // Rolls.
             ArrayList<Integer> lstRolls = ScoreFragment.getRolls();
 
-            Character.setRaceInfo(Race, RaceTraits);
+            Character.setRaceInfo(Race, RaceTraits, RaceImageIndex);
             Character.setRaceModifiers(lstRaceModifiers);
             Character.setClassInfo(Class);
             Character.setBackgroundPersonality(lstBackgroundInfo);
@@ -153,14 +154,19 @@ public class activity_CharacterScratch extends AppCompatActivity
 
     }
 
-    private void checkCharacter()
+    public static void updateStuffAndCheck()
+    {
+        updateCharacter();
+        checkCharacter();
+    }
+
+    private static void checkCharacter()
     {
 
         try
         {
             // Global Character.
             dndCharacter Character = activity_CharacterScratch.character;
-            System.out.println(Character.isValid());
             if(Character.isValid())
             {
                 activity_CharacterScratch.btnSave.setText(R.string.save);
@@ -168,7 +174,7 @@ public class activity_CharacterScratch extends AppCompatActivity
                 btnSave.setOnClickListener(e -> {
                     Character_File_Saver saver = new Character_File_Saver();
                     saver.writeCharacterToFile(Character);
-                    Toast.makeText(this, "Character Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(e.getContext(), "Character Saved", Toast.LENGTH_SHORT).show();
                 });
 
             }

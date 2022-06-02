@@ -1,5 +1,7 @@
 package project.cst131.fragments;
 
+import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +32,7 @@ public class RacesFragment extends Fragment
     private TextView tvRacialDescription;
     private static TextView tvRacialTraits;
     private static RadioGroup rgRaceSubs;
-    private int index = 0;
+    public static int index = 0;
     private static View view;
     private static String sChoice = "";
     private Spinner spinner;
@@ -53,6 +55,7 @@ public class RacesFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         view = inflater.inflate(R.layout.frag_character_races, container, false);
+        updateStuffAndCheck();
 
         ivRaceImage = view.findViewById(R.id.ivRaceImage);
         tvRaceTitle = view.findViewById(R.id.tvRaceTitle);

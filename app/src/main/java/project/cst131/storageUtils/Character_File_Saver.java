@@ -15,7 +15,7 @@ import project.cst131.controllers.dndCharacter;
 public class Character_File_Saver
 {
     private final File path = MainActivity.file;
-    private final String name = "characters.txt";
+    private final String name = "characters.dndCharc";
     private File file;
 
     private ArrayList<dndCharacter> lstCharacters = new ArrayList<>();
@@ -23,7 +23,6 @@ public class Character_File_Saver
     public Character_File_Saver()
     {
         createFile();
-        System.out.println(file.getAbsolutePath());
     }
 
     private void createFile()
@@ -38,7 +37,6 @@ public class Character_File_Saver
             try
             {
                 FileOutputStream outputStream = new FileOutputStream(file);
-                outputStream.write(new String("sadasd").getBytes());
                 outputStream.close();
             }
             catch (IOException e)
@@ -50,34 +48,42 @@ public class Character_File_Saver
 
     public void writeCharacterToFile(dndCharacter character)
     {
+        readFromFile();
+        lstCharacters.add(character);
         try
         {
-
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(character);
-            objectOutputStream.close();
+            objectOutputStream.writeObject(lstCharacters);
+
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
+
     }
 
-    public boolean readFromFile()
+    public void readFromFile()
     {
         try
         {
-            FileInputStream fileInputStream = new FileInputStream(path);
+            FileInputStream fileInputStream = new FileInputStream(file);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            Object obj = objectInputStream.readObject();
-            objectInputStream.close();
-            lstCharacters.add((dndCharacter) obj);
-            return true;
+            lstCharacters = (ArrayList<dndCharacter>) objectInputStream.readObject();
+
         }
         catch (Exception ex)
         {
-            return false;
+
         }
+
     }
+
+    public ArrayList<dndCharacter> getLstCharacters()
+    {
+        return this.lstCharacters;
+    }
+
+
 }

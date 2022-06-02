@@ -1,5 +1,7 @@
 package project.cst131.fragments;
 
+import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -35,6 +37,7 @@ public class PersonalityBackgroundFragment extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
+        updateStuffAndCheck();
         view = inflater.inflate(R.layout.frag_character_personality_and_background, container, false);
         genderOptions   =   view.findViewById(R.id.spGender);
         alignments      =   view.findViewById(R.id.spAlignment);

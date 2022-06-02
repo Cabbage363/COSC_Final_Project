@@ -23,19 +23,13 @@ public class IntentController
 //                intent = new Intent(activity, CreateCharacterMenu.class);
                 break;
             case R.id.btnViewCharacters:
-//                intent = new Intent(activity, CreateCharacterMenu.class);
-                break;
-            case R.id.btnSave:
-//                intent = new Intent(activity, CreateCharacterMenu.class);
+                intent = new Intent(activity, activity_CharactersView.class);
                 break;
             default:
                 break;
         }
 
-//        if(!(buttonID == R.id.btnCreateCharacter))
-//        {
-            activity.startActivity(intent);
-//        }
+        activity.startActivity(intent);
 
     }
 

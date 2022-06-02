@@ -27,6 +27,8 @@ public class dndCharacter implements Serializable
     private String sGender, sAlignment, sTitle, sFirstName, sLastName, sHeightFeet, getsHeightInch, sBackground;
     private int str, dex, con, intel, wis, charis;
     private ArrayList<String> lstEqipment = new ArrayList<>();
+    private int indexOfRace;
+
     /**
      * Str, Dex, Con, Intel, Wis, Char
      */
@@ -35,12 +37,15 @@ public class dndCharacter implements Serializable
 
     /**
      * Method to set raceInfo.
-     * @param sVals sRace, sRaceTraits.
+     * @param race
+     * @param raceTraits
+     * @param indexOfRace
      */
-    public void setRaceInfo(String... sVals)
+    public void setRaceInfo(String race, String raceTraits, int indexOfRace)
     {
-        this.sRace = sVals[0];
-        this.sRaceTraits = sVals[1];
+        this.sRace = race;
+        this.sRaceTraits = raceTraits;
+        this.indexOfRace = indexOfRace;
     }
 
     /**
@@ -111,11 +116,12 @@ public class dndCharacter implements Serializable
     {
         ArrayList<String> lstFields = new ArrayList<>(Arrays.asList(
            sRace, sRaceTraits, sClass, sClassHitDie, sClassProfSaveThrow, sClassProfPlus,
-           sClassTools, sClassNumSkills, sClassSkills, sGender, sAlignment, sTitle, sFirstName,
+           sClassNumSkills, sClassSkills, sGender, sAlignment, sTitle, sFirstName,
                 sLastName, sHeightFeet, getsHeightInch, sBackground,
                 String.valueOf(str), String.valueOf(dex), String.valueOf(con), String.valueOf(intel),
-                String.valueOf(wis), String.valueOf(charis)
+                String.valueOf(wis), String.valueOf(charis), String.valueOf(indexOfRace)
         ));
+        lstFields.add(sClassTools.isEmpty() ? sClassTools : "none");
         lstFields.addAll(sClassWeaponsArmour);
         lstFields.addAll(lstEqipment);
         lstFields.addAll(lstAbilityScores.stream().map(String::valueOf).collect(Collectors.toCollection(ArrayList::new)));
@@ -128,6 +134,173 @@ public class dndCharacter implements Serializable
             }
         }
         return true;
+    }
+
+    public static long getSerialVersionUID()
+    {
+
+        return serialVersionUID;
+    }
+
+    public String getsRace()
+    {
+
+        return sRace;
+    }
+
+    public String getsRaceTraits()
+    {
+
+        return sRaceTraits;
+    }
+
+    public String getsClass()
+    {
+
+        return sClass;
+    }
+
+    public String getsClassHitDie()
+    {
+
+        return sClassHitDie;
+    }
+
+    public String getsClassProfSaveThrow()
+    {
+
+        return sClassProfSaveThrow;
+    }
+
+    public String getsClassProfPlus()
+    {
+
+        return sClassProfPlus;
+    }
+
+    public ArrayList<String> getsClassWeaponsArmour()
+    {
+
+        return sClassWeaponsArmour;
+    }
+
+    public String getsClassTools()
+    {
+
+        return sClassTools;
+    }
+
+    public String getsClassNumSkills()
+    {
+
+        return sClassNumSkills;
+    }
+
+    public String getsClassSkills()
+    {
+
+        return sClassSkills;
+    }
+
+    public String getsGender()
+    {
+
+        return sGender;
+    }
+
+    public String getsAlignment()
+    {
+
+        return sAlignment;
+    }
+
+    public String getsTitle()
+    {
+
+        return sTitle;
+    }
+
+    public String getsFirstName()
+    {
+
+        return sFirstName;
+    }
+
+    public String getsLastName()
+    {
+
+        return sLastName;
+    }
+
+    public String getsHeightFeet()
+    {
+
+        return sHeightFeet;
+    }
+
+    public String getGetsHeightInch()
+    {
+
+        return getsHeightInch;
+    }
+
+    public String getsBackground()
+    {
+
+        return sBackground;
+    }
+
+    public int getStr()
+    {
+
+        return str;
+    }
+
+    public int getDex()
+    {
+
+        return dex;
+    }
+
+    public int getCon()
+    {
+
+        return con;
+    }
+
+    public int getIntel()
+    {
+
+        return intel;
+    }
+
+    public int getWis()
+    {
+
+        return wis;
+    }
+
+    public int getCharis()
+    {
+
+        return charis;
+    }
+
+    public ArrayList<String> getLstEqipment()
+    {
+
+        return lstEqipment;
+    }
+
+    public ArrayList<Integer> getLstAbilityScores()
+    {
+
+        return lstAbilityScores;
+    }
+
+    public int getIndexOfRace()
+    {
+        return indexOfRace;
     }
 
 }

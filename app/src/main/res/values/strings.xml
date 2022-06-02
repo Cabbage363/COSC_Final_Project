@@ -47,6 +47,10 @@
     <string name="roll5">Roll All</string>
     <string name="value">0</string>
     <string name="save">Save</string>
+    <string name="name">Name</string>
+    <string name="classer">Class</string>
+    <string name="races">Race</string>
+    <string name="viewPDF">View PDF for this Character</string>
 
     <string-array name="genderOptions">
         <item>Male</item>

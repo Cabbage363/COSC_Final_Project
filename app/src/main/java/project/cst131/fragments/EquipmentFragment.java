@@ -1,5 +1,7 @@
 package project.cst131.fragments;
 
+import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
+
 import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -41,6 +43,7 @@ public class EquipmentFragment extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
+        updateStuffAndCheck();
         view = inflater.inflate(R.layout.frag_character_equipment, container, false);
         tvWealth = view.findViewById(R.id.tvWealth);
         main = view.findViewById(R.id.layoutMain);

@@ -1,5 +1,7 @@
 package project.cst131.fragments;
 
+import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +39,7 @@ public class ClassesFragment extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
+        updateStuffAndCheck();
         view = inflater.inflate(R.layout.frag_character_classes, container, false);
 
         tvClassName    =    view.findViewById(R.id.tvClassHeader);

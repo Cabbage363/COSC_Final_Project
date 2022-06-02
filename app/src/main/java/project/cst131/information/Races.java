@@ -1,5 +1,7 @@
 package project.cst131.information;
 
+import android.graphics.drawable.Drawable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -35,6 +37,19 @@ public class Races
             R.drawable.tiefling
     ));
 
+
+    public static int[] lstPH_Races_Images_Drawables = new int[]
+            {
+                    R.drawable.elf,
+                    R.drawable.dwarf,
+                    //            R.drawable.Halfling,
+                    //            R.drawable.Human,
+                    //            R.drawable.Dragonborn,
+                    R.drawable.gnome,
+                    R.drawable.half_elf,
+                    R.drawable.half_orc,
+                    R.drawable.tiefling
+            };
     public static ArrayList<ArrayList<String>> lstPH_Races_Info = new ArrayList<>(
             Arrays.asList(
                     new ArrayList<>(Arrays.asList("Elves are a magical people of otherworldly grace, living in the world but not entirely part of it.", "+2 Dexterity, Darkvision, Keen Senses, Fey Ancestry, Trance")),

@@ -1,5 +1,7 @@
 package project.cst131.fragments;
 
+import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +40,7 @@ public class ScoreFragment extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
+        updateStuffAndCheck();
         view = inflater.inflate(R.layout.frag_ability, container, false);
 
         btnRollAll  =   view.findViewById(R.id.btnRollAll   );
@@ -71,6 +74,7 @@ public class ScoreFragment extends Fragment
         lstTextVals.forEach(x -> {
             x.setText(String.valueOf(rollD20()));
         });
+        updateStuffAndCheck();
     }
 
     private void rollAndSet(Button btn, TextView tv)
@@ -80,6 +84,7 @@ public class ScoreFragment extends Fragment
 
     public int rollD20()
     {
+        updateStuffAndCheck();
         return (int) Math.floor((Math.random() * 20) + 1);
     }
 
