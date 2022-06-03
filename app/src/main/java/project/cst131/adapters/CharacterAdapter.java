@@ -2,12 +2,15 @@ package project.cst131.adapters;
 
 import static project.cst131.information.Races.lstPH_Races_Images;
 import static project.cst131.information.Races.lstPH_Races_Sub;
+import static project.cst131.storageUtils.pdf_generation.createPDF;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,7 +32,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = (View) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_character, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_character, parent, false);
 
         return new ViewHolder(v);
     }
@@ -40,20 +43,23 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
 
         dndCharacter character = characters.get(position);
 
-        lstPH_Races_Sub.forEach(x-> x.contains(character.getsRace()));
-
-        holder.raceImage.setImageResource(lstPH_Races_Images.get(0));
+        holder.raceImage.setImageResource(lstPH_Races_Images.get(character.getIndexOfRace()));
         holder.title .setText(new StringBuilder().append(character.getsTitle()));
-        holder.name.setText(new StringBuilder().append(character.getsFirstName()).append(character.getsLastName()).toString());
+        holder.name.setText(character.getsFirstName() + character.getsLastName());
         holder.race.setText(new StringBuilder().append(character.getsRace()));
         holder.chosenClass.setText(new StringBuilder().append(character.getsClass()));
 
-        holder.str.setText(new StringBuilder().append(    character.getLstAbilityScores().get(0) +  (character.getStr()      == 0 ? "" : " +" + character.getStr())));
-        holder.dex.setText(new StringBuilder().append(    character.getLstAbilityScores().get(1) +  (character.getDex()      == 0 ? "" : " +" + character.getDex())));
-        holder.con.setText(new StringBuilder().append(    character.getLstAbilityScores().get(2) +  (character.getCon()      == 0 ? "" : " +" + character.getCon())));
-        holder.intel.setText(new StringBuilder().append(  character.getLstAbilityScores().get(3) +  (character.getIntel()    == 0 ? "" : " +" + character.getIntel())));
-        holder.wis.setText(new StringBuilder().append(    character.getLstAbilityScores().get(4) +  (character.getWis()      == 0 ? "" : " +" + character.getWis())));
-        holder.cha.setText(new StringBuilder().append(    character.getLstAbilityScores().get(5) +  (character.getCharis()   == 0 ? "" : " +" + character.getCharis())));
+        holder.str.setText(new StringBuilder().append(character.getLstAbilityScores().get(0)).append(character.getStr() == 0 ? "" : " +" + character.getStr()));
+        holder.dex.setText(new StringBuilder().append(character.getLstAbilityScores().get(1)).append(character.getDex() == 0 ? "" : " +" + character.getDex()));
+        holder.con.setText(new StringBuilder().append(character.getLstAbilityScores().get(2)).append(character.getCon() == 0 ? "" : " +" + character.getCon()));
+        holder.intel.setText(new StringBuilder().append(character.getLstAbilityScores().get(3)).append(character.getIntel() == 0 ? "" : " +" + character.getIntel()));
+        holder.wis.setText(new StringBuilder().append(character.getLstAbilityScores().get(4)).append(character.getWis() == 0 ? "" : " +" + character.getWis()));
+        holder.cha.setText(new StringBuilder().append(character.getLstAbilityScores().get(5)).append(character.getCharis() == 0 ? "" : " +" + character.getCharis()));
+        holder.btn.setOnClickListener(e -> {
+            Toast.makeText(e.getContext(), "View Downloads for PDF", Toast.LENGTH_SHORT).show();
+            createPDF(character);
+        });
+
     }
 
     @Override
@@ -74,6 +80,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         public final View view;
         public final ImageView raceImage;
         public final TextView title, name, race, chosenClass, str, dex, con, intel, wis, cha;
+        public final Button btn;
 
         public ViewHolder(View view)
         {
@@ -90,7 +97,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
             this.intel          =   view.findViewById(R.id.tvIntelVal);
             this.wis            =   view.findViewById(R.id.tvWisdomVal);
             this.cha            =   view.findViewById(R.id.tvCharismaVal);
-
+            this.btn            =   view.findViewById(R.id.btnPDF_View);
         }
 
     }

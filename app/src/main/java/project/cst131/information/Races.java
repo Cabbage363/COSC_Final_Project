@@ -1,11 +1,8 @@
 package project.cst131.information;
 
-import android.graphics.drawable.Drawable;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 import project.cst131.R;
 
@@ -37,19 +34,6 @@ public class Races
             R.drawable.tiefling
     ));
 
-
-    public static int[] lstPH_Races_Images_Drawables = new int[]
-            {
-                    R.drawable.elf,
-                    R.drawable.dwarf,
-                    //            R.drawable.Halfling,
-                    //            R.drawable.Human,
-                    //            R.drawable.Dragonborn,
-                    R.drawable.gnome,
-                    R.drawable.half_elf,
-                    R.drawable.half_orc,
-                    R.drawable.tiefling
-            };
     public static ArrayList<ArrayList<String>> lstPH_Races_Info = new ArrayList<>(
             Arrays.asList(
                     new ArrayList<>(Arrays.asList("Elves are a magical people of otherworldly grace, living in the world but not entirely part of it.", "+2 Dexterity, Darkvision, Keen Senses, Fey Ancestry, Trance")),
@@ -62,17 +46,5 @@ public class Races
                     new ArrayList<>(Arrays.asList("Some half-orcs rise to become proud leaders of orc communities. Some venture into the world to prove their worth. Many of these become adventurers, achieving greatness for their mighty deeds.","+2 Strength, +1 Constitution, Darkvision, Menacing, Relentless Endurance, Savage Attacks")),
                     new ArrayList<>(Arrays.asList("To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling.","+2 Charisma, +1 Intelligence, Darkvision, Hellish Resistance, Infernal Legacy"))
             ));
-
-    /**
-
-
-
-
-
-
-
-
-
-     */
 
 }

@@ -1,8 +1,8 @@
 package project.cst131.fragments;
 
+import static project.cst131.activities.activity_CharacterScratch.updateCharacter;
 import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +58,7 @@ public class PersonalityBackgroundFragment extends Fragment
                 R.array.alignment, android.R.layout.simple_spinner_item);
         adapterA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         alignments.setAdapter(adapterA);
-
+        updateCharacter();
         return view;
     }
 

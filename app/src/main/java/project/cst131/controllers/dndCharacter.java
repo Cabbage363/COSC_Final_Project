@@ -1,5 +1,7 @@
 package project.cst131.controllers;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +11,6 @@ import project.cst131.information.Points;
 
 public class dndCharacter implements Serializable
 {
-    private static final long serialVersionUID = 1L;
 
     public dndCharacter()
     {
@@ -26,7 +27,7 @@ public class dndCharacter implements Serializable
     private String sClassSkills;
     private String sGender, sAlignment, sTitle, sFirstName, sLastName, sHeightFeet, getsHeightInch, sBackground;
     private int str, dex, con, intel, wis, charis;
-    private ArrayList<String> lstEqipment = new ArrayList<>();
+    private ArrayList<String> lstEquipment = new ArrayList<>();
     private int indexOfRace;
 
     /**
@@ -37,9 +38,6 @@ public class dndCharacter implements Serializable
 
     /**
      * Method to set raceInfo.
-     * @param race
-     * @param raceTraits
-     * @param indexOfRace
      */
     public void setRaceInfo(String race, String raceTraits, int indexOfRace)
     {
@@ -100,7 +98,7 @@ public class dndCharacter implements Serializable
      */
     public void setEquipment(ArrayList<String> lstEquipment)
     {
-        this.lstEqipment = lstEquipment;
+        this.lstEquipment = lstEquipment;
     }
 
     /**
@@ -112,34 +110,69 @@ public class dndCharacter implements Serializable
         this.lstAbilityScores = lstAbilityScores;
     }
 
-    public boolean isValid() throws Exception
+    public boolean isValid()
     {
-        ArrayList<String> lstFields = new ArrayList<>(Arrays.asList(
-           sRace, sRaceTraits, sClass, sClassHitDie, sClassProfSaveThrow, sClassProfPlus,
-           sClassNumSkills, sClassSkills, sGender, sAlignment, sTitle, sFirstName,
-                sLastName, sHeightFeet, getsHeightInch, sBackground,
-                String.valueOf(str), String.valueOf(dex), String.valueOf(con), String.valueOf(intel),
-                String.valueOf(wis), String.valueOf(charis), String.valueOf(indexOfRace)
-        ));
-        lstFields.add(sClassTools.isEmpty() ? sClassTools : "none");
-        lstFields.addAll(sClassWeaponsArmour);
-        lstFields.addAll(lstEqipment);
-        lstFields.addAll(lstAbilityScores.stream().map(String::valueOf).collect(Collectors.toCollection(ArrayList::new)));
-
-        for (String lstField : lstFields)
+        boolean answer = false;
+        try
         {
-            if(lstField.isEmpty())
+            ArrayList<String> lstFields = new ArrayList<>(Arrays.asList(
+                    sRace, sRaceTraits, sClass, sClassHitDie, sClassProfSaveThrow, sClassProfPlus,
+                    sClassNumSkills, sClassSkills, sGender, sAlignment, sTitle, sFirstName,
+                    sLastName, sHeightFeet, getsHeightInch, sBackground,
+                    String.valueOf(str), String.valueOf(dex), String.valueOf(con), String.valueOf(intel),
+                    String.valueOf(wis), String.valueOf(charis), String.valueOf(indexOfRace)
+            ));
+            lstFields.add(sClassTools.isEmpty() ? sClassTools : "none");
+            lstFields.addAll(sClassWeaponsArmour);
+            lstFields.addAll(lstEquipment);
+            lstFields.addAll(lstAbilityScores.stream().map(String::valueOf).collect(Collectors.toCollection(ArrayList::new)));
+
+            for (String lstField : lstFields)
             {
-                return false;
+                answer = !lstField.isEmpty();
             }
+
         }
-        return true;
+        catch (Exception ignored)
+        {
+
+        }
+
+        return answer;
     }
 
-    public static long getSerialVersionUID()
-    {
-
-        return serialVersionUID;
+    @NonNull
+    @Override
+    public String toString() {
+        return "dndCharacter{" +
+                "sRace='" + sRace + '\'' +
+                ", sRaceTraits='" + sRaceTraits + '\'' +
+                ", sClass='" + sClass + '\'' +
+                ", sClassHitDie='" + sClassHitDie + '\'' +
+                ", sClassProfSaveThrow='" + sClassProfSaveThrow + '\'' +
+                ", sClassProfPlus='" + sClassProfPlus + '\'' +
+                ", sClassWeaponsArmour=" + sClassWeaponsArmour +
+                ", sClassTools='" + sClassTools + '\'' +
+                ", sClassNumSkills='" + sClassNumSkills + '\'' +
+                ", sClassSkills='" + sClassSkills + '\'' +
+                ", sGender='" + sGender + '\'' +
+                ", sAlignment='" + sAlignment + '\'' +
+                ", sTitle='" + sTitle + '\'' +
+                ", sFirstName='" + sFirstName + '\'' +
+                ", sLastName='" + sLastName + '\'' +
+                ", sHeightFeet='" + sHeightFeet + '\'' +
+                ", getsHeightInch='" + getsHeightInch + '\'' +
+                ", sBackground='" + sBackground + '\'' +
+                ", str=" + str +
+                ", dex=" + dex +
+                ", con=" + con +
+                ", intel=" + intel +
+                ", wis=" + wis +
+                ", charis=" + charis +
+                ", lstEquipment=" + lstEquipment +
+                ", indexOfRace=" + indexOfRace +
+                ", lstAbilityScores=" + lstAbilityScores +
+                '}';
     }
 
     public String getsRace()
@@ -286,10 +319,10 @@ public class dndCharacter implements Serializable
         return charis;
     }
 
-    public ArrayList<String> getLstEqipment()
+    public ArrayList<String> getLstEquipment()
     {
 
-        return lstEqipment;
+        return lstEquipment;
     }
 
     public ArrayList<Integer> getLstAbilityScores()
@@ -297,6 +330,8 @@ public class dndCharacter implements Serializable
 
         return lstAbilityScores;
     }
+
+    public void setIndexOfRace(int nVal) { this.indexOfRace = nVal ;}
 
     public int getIndexOfRace()
     {

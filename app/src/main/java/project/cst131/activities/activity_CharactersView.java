@@ -36,7 +36,7 @@ public class activity_CharactersView extends AppCompatActivity
         character_file_saver = new Character_File_Saver();
         characterList = character_file_saver.getLstCharacters();
 
-        this.characters = (RecyclerView) findViewById(R.id._rv_Characters);
+        this.characters = findViewById(R.id._rv_Characters);
         RecyclerView.LayoutManager mrg = new LinearLayoutManager(this);
         this.characters.setLayoutManager(mrg);
 

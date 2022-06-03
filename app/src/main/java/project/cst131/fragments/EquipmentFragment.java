@@ -1,5 +1,6 @@
 package project.cst131.fragments;
 
+import static project.cst131.activities.activity_CharacterScratch.updateCharacter;
 import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
 
 import android.annotation.SuppressLint;
@@ -53,7 +54,7 @@ public class EquipmentFragment extends Fragment
 
         choice = Points.ClassAbilityIncrease.valueOf(ClassesFragment.lstClasses.get(ClassesFragment.index).name());
 
-        String money = (String) Points.ClassAbilityIncrease.valueOf(choice.getDeclaringClass(), choice.name()).getsMoney();
+        String money = Points.ClassAbilityIncrease.valueOf(choice.getDeclaringClass(), choice.name()).getsMoney();
 
         if(money.contains("x"))
         {
@@ -74,6 +75,7 @@ public class EquipmentFragment extends Fragment
         }
         tvWealth.setText(String.valueOf(wealth));
         generateEquipChoices();
+        updateCharacter();
         return view;
     }
 

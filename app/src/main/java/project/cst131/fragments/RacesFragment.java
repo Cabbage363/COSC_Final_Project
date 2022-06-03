@@ -1,5 +1,6 @@
 package project.cst131.fragments;
 
+import static project.cst131.activities.activity_CharacterScratch.updateCharacter;
 import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
 
 import android.os.Bundle;
@@ -34,7 +35,6 @@ public class RacesFragment extends Fragment
     private static RadioGroup rgRaceSubs;
     public static int index = 0;
     private static View view;
-    private static String sChoice = "";
     private Spinner spinner;
     private static String selection;
     public List<String> spinnerArray = new ArrayList<>(Arrays.asList(
@@ -77,6 +77,7 @@ public class RacesFragment extends Fragment
             increaseIndex();
             updateRace();
         });
+        updateCharacter();
 
         return view;
     }
@@ -117,16 +118,14 @@ public class RacesFragment extends Fragment
             rgRaceSubs.addView(subRace);
         }
 
-        /**
-         * Below is to help and maintaining previous choice.
+        /*
+          Below is to help and maintaining previous choice.
          */
         int numChildren = rgRaceSubs.getChildCount();
         for(int i = 0; i < numChildren; i++)
         {
-            RadioButton rb = (RadioButton) view.findViewById(rgRaceSubs.getChildAt(i).getId());
-            rgRaceSubs.getChildAt(i).setOnClickListener(e ->{
-                Choices.setRace((String) rb.getText());
-            });
+            RadioButton rb = view.findViewById(rgRaceSubs.getChildAt(i).getId());
+            rgRaceSubs.getChildAt(i).setOnClickListener(e -> Choices.setRace((String) rb.getText()));
             try {
                 if(rb.getText().equals(Choices.getRace()))
                 {
@@ -140,21 +139,21 @@ public class RacesFragment extends Fragment
             }
         }
 
-        /**
-         * Updating Racial Description and traits below.
+        /*
+          Updating Racial Description and traits below.
          */
 
         tvRacialDescription.setText(Races.lstPH_Races_Info.get(index).get(0));
         tvRacialTraits.setText(Races.lstPH_Races_Info.get(index).get(1));
 
-        /**
-         * Handles Spinner.
+        /*
+          Handles Spinner.
          */
 
         if(Races.lstPH_Races_Sub.get(index).get(0).equals("Dragonborn"))
         {
             spinner.setVisibility(View.VISIBLE);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(
                     view.getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, spinnerArray);
 
             adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);

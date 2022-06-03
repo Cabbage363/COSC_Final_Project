@@ -1,16 +1,12 @@
 package project.cst131.activities;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -27,7 +23,6 @@ import project.cst131.fragments.EquipmentFragment;
 import project.cst131.fragments.PersonalityBackgroundFragment;
 import project.cst131.fragments.RacesFragment;
 import project.cst131.fragments.ScoreFragment;
-import project.cst131.information.Choices;
 import project.cst131.information.Points;
 import project.cst131.storageUtils.Character_File_Saver;
 
@@ -63,6 +58,8 @@ public class activity_CharacterScratch extends AppCompatActivity
         FragmentStateAdapter adapter = new ScreenSlidePagerAdapter(activity_CharacterScratch.this);
         viewPager.setAdapter(adapter);
 
+
+
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
             switch (position)
             {
@@ -84,6 +81,7 @@ public class activity_CharacterScratch extends AppCompatActivity
                 default:
 
             }
+
         }).attach();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
@@ -108,19 +106,16 @@ public class activity_CharacterScratch extends AppCompatActivity
         });
 
         viewPager.setCurrentItem(0);
-        checkCharacter();
-        updateCharacter();
-
     }
 
 
     public static void updateCharacter()
     {
-
+        dndCharacter Character;
         try
         {
             // Global Character.
-            dndCharacter Character = activity_CharacterScratch.character;
+            Character = activity_CharacterScratch.character;
             // Race.
             String Race = RacesFragment.getRace();
             // Race Traits.
@@ -146,6 +141,7 @@ public class activity_CharacterScratch extends AppCompatActivity
             Character.setBackgroundPersonality(lstBackgroundInfo);
             Character.setEquipment(lstEquipment);
             Character.setAbilityScores(lstRolls);
+
         }
         catch (Exception ignored)
         {
@@ -167,6 +163,7 @@ public class activity_CharacterScratch extends AppCompatActivity
         {
             // Global Character.
             dndCharacter Character = activity_CharacterScratch.character;
+            System.out.println(Character.isValid());
             if(Character.isValid())
             {
                 activity_CharacterScratch.btnSave.setText(R.string.save);

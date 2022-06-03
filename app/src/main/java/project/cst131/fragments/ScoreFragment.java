@@ -1,5 +1,6 @@
 package project.cst131.fragments;
 
+import static project.cst131.activities.activity_CharacterScratch.updateCharacter;
 import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
 
 import android.os.Bundle;
@@ -15,10 +16,8 @@ import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 import project.cst131.R;
-import project.cst131.information.Points;
 
 public class ScoreFragment extends Fragment
 {
@@ -65,15 +64,14 @@ public class ScoreFragment extends Fragment
         btnRollAll.setOnClickListener(e->rollAll());
 
         lstButtons.forEach(x -> rollAndSet(x, lstTextVals.get(lstButtons.indexOf(x))));
+        updateCharacter();
 
         return view;
     }
 
     private void rollAll()
     {
-        lstTextVals.forEach(x -> {
-            x.setText(String.valueOf(rollD20()));
-        });
+        lstTextVals.forEach(x -> x.setText(String.valueOf(rollD20())));
         updateStuffAndCheck();
     }
 

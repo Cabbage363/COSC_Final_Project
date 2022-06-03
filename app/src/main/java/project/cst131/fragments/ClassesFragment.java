@@ -18,7 +18,6 @@ import java.util.Arrays;
 
 import project.cst131.R;
 import project.cst131.information.Points;
-import project.cst131.information.Races;
 
 public class ClassesFragment extends Fragment
 {
@@ -78,7 +77,7 @@ public class ClassesFragment extends Fragment
 
         current = lstClasses.get(index);
 
-        tvClassName.setText(String.valueOf(current.name()));
+        tvClassName.setText(current.name());
         tvHitDieVal.setText(String.valueOf(current.getHitDie()));
         tvProfPlusVal.setText(String.valueOf(current.getProf()));
         tvProf_AW_Val.setText(String.valueOf(current.getsProf_AW()));

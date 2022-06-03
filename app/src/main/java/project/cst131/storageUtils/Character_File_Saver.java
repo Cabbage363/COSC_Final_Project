@@ -2,7 +2,6 @@ package project.cst131.storageUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -73,7 +72,7 @@ public class Character_File_Saver
             lstCharacters = (ArrayList<dndCharacter>) objectInputStream.readObject();
 
         }
-        catch (Exception ex)
+        catch (Exception ignored)
         {
 
         }
@@ -84,6 +83,5 @@ public class Character_File_Saver
     {
         return this.lstCharacters;
     }
-
 
 }

@@ -50,7 +50,8 @@
     <string name="name">Name</string>
     <string name="classer">Class</string>
     <string name="races">Race</string>
-    <string name="viewPDF">View PDF for this Character</string>
+    <string name="viewPDF">Create PDF this Character</string>
+    <string name="viewChar">View Characters</string>
 
     <string-array name="genderOptions">
         <item>Male</item>
