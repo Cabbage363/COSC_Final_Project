@@ -3,6 +3,7 @@ package project.cst131.fragments;
 import static project.cst131.activities.activity_CharacterScratch.updateCharacter;
 import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,6 +97,7 @@ public class RacesFragment extends Fragment
         {
             Races.lstPH_Races_Sub.get(index).forEach(x -> {
                 RadioButton subRace = new RadioButton(view.getContext());
+                subRace.setTextColor(Color.RED);
                 subRace.setText(x);
                 if(Races.lstPH_Races_Sub.get(index).get(0).equals(x))
                 {

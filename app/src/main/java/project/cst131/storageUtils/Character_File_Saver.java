@@ -62,13 +62,14 @@ public class Character_File_Saver
         }
 
     }
-
     public void readFromFile()
     {
         try
         {
             FileInputStream fileInputStream = new FileInputStream(file);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+
+
             lstCharacters = (ArrayList<dndCharacter>) objectInputStream.readObject();
 
         }

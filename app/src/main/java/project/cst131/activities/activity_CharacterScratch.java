@@ -39,8 +39,8 @@ public class activity_CharacterScratch extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_create_scratch);
 
-        Toolbar appToolBar = findViewById(R.id._tbScratchCharacter);
-        setSupportActionBar(appToolBar);
+//        Toolbar appToolBar = findViewById(R.id._tbScratchCharacter);
+//        setSupportActionBar(appToolBar);
 
         tabLayout = findViewById(R.id._tlScratchCharactersTabs);
         viewPager =  findViewById(R.id._vpScratchCharacter);

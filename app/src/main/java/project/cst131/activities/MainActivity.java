@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity
         if(ContextCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) 
         {
-            Toast.makeText(this, "You already granted this permission!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "You already granted this permission!", Toast.LENGTH_SHORT).show();
         }
         else
         {
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainapp);
 
-        Toolbar appToolBar = findViewById(R.id.appToolBar);
-        setSupportActionBar(appToolBar);
+//        Toolbar appToolBar = findViewById(R.id.appToolBar);
+//        setSupportActionBar(appToolBar);
 
         btnCreateCharacter    =     findViewById(R.id.btnCreateCharacter);
         btnRandomlyCreate     =     findViewById(R.id.btnRandomCreate);

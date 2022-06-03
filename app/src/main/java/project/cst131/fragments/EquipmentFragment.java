@@ -4,6 +4,7 @@ import static project.cst131.activities.activity_CharacterScratch.updateCharacte
 import static project.cst131.activities.activity_CharacterScratch.updateStuffAndCheck;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -103,6 +104,7 @@ public class EquipmentFragment extends Fragment
                 extra.setText(R.string.included);
                 extra.setTypeface(font, Typeface.BOLD);
                 extra.setTextSize(20);
+                extra.setTextColor(Color.RED);
                 main.addView(extra);
                 choicesLabel.setText(choices[choices.length-1]);
                 main.addView(choicesLabel);
@@ -118,6 +120,7 @@ public class EquipmentFragment extends Fragment
                 {
                     RadioButton radioButton = new RadioButton(view.getContext());
                     radioButton.setText(choice);
+                    radioButton.setTextColor(Color.RED);
                     radioButton.setTypeface(font, Typeface.BOLD);
                     radioButton.setTextSize(20);
                     radioGroup.addView(radioButton);

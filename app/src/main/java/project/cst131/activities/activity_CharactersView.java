@@ -30,8 +30,8 @@ public class activity_CharactersView extends AppCompatActivity
         setContentView(R.layout.activity_view_characters);
         activity = this;
 
-        Toolbar appToolBar = findViewById(R.id._tbViewCharacters);
-        setSupportActionBar(appToolBar);
+//        Toolbar appToolBar = findViewById(R.id._tbViewCharacters);
+//        setSupportActionBar(appToolBar);
 
         character_file_saver = new Character_File_Saver();
         characterList = character_file_saver.getLstCharacters();
